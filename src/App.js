@@ -15,6 +15,9 @@ function App() {
 			`https://geo.ipify.org/api/v2/country,city?apiKey=at_3x5v4lqAJPFWZrWDWVEQ259pT8HRu&domain=${input}`
 		)
 		const location = await data.json()
+
+		if (location.code) return
+
 		setLocation(location)
 	}
 
@@ -24,7 +27,6 @@ function App() {
 
 	return (
 		<main className='app'>
-			<button onClick={getLocation}>click</button>
 			<h1 className='app__header'>IP Address Tracker</h1>
 			<Search setInput={setInput} />
 			<Results location={location} />

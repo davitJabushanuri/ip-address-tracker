@@ -9,12 +9,12 @@ const Results = ({ location }) => {
 			</div>
 			<div className='results__container'>
 				<p className='results__container__header'>LOCATION</p>
-				<h2 className='results__container__result'>{`${location?.location.city}, ${location?.location.country} ${location?.location.postalCode}`}</h2>
+				<h2 className='results__container__result'>{`${location?.location?.city}, ${location?.location?.country} ${location?.location?.postalCode}`}</h2>
 			</div>
 			<div className='results__container'>
 				<p className='results__container__header'>TIMEZONE</p>
 				<h2 className='results__container__result'>
-					{location?.location.timezone}
+					UTC {location?.location?.timezone}
 				</h2>
 			</div>
 			<div className='results__container'>

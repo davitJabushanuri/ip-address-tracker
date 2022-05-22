@@ -4,14 +4,15 @@ html {
 
 body {
 	min-height: 100vh;
+	width: 100%;
 }
 
 .app {
 	min-height: 100vh;
-	width: 100%;
-	padding: 2rem 0;
+	padding: 2rem 1rem;
 	background-image: url('../../images/pattern-bg.png');
 	background-repeat: no-repeat;
+	background-size: 100% 20%;
 	color: #fff;
 
 	&__header {
