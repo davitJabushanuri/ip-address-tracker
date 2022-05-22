@@ -1,23 +1,25 @@
 import React from 'react'
 
-const Results = () => {
+const Results = ({ location }) => {
 	return (
 		<div className='results'>
 			<div className='results__container'>
 				<p className='results__container__header'>IP ADDRESS</p>
-				<h2 className='results__container__result'>192.212.174.101</h2>
+				<h2 className='results__container__result'>{location?.ip}</h2>
 			</div>
 			<div className='results__container'>
 				<p className='results__container__header'>LOCATION</p>
-				<h2 className='results__container__result'>bROOKLYN NY</h2>
+				<h2 className='results__container__result'>{`${location?.location.city}, ${location?.location.country} ${location?.location.postalCode}`}</h2>
 			</div>
 			<div className='results__container'>
 				<p className='results__container__header'>TIMEZONE</p>
-				<h2 className='results__container__result'>UTC -5:00</h2>
+				<h2 className='results__container__result'>
+					{location?.location.timezone}
+				</h2>
 			</div>
 			<div className='results__container'>
 				<p className='results__container__header'>ISP</p>
-				<h2 className='results__container__result'>SpaceX Starlink</h2>
+				<h2 className='results__container__result'>{location?.isp}</h2>
 			</div>
 		</div>
 	)
