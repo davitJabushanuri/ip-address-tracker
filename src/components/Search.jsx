@@ -1,14 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import arrowIcon from '../images/icon-arrow.svg'
 
-const Search = () => {
+const Search = ({ setInput }) => {
+	const [domain, setDomain] = useState('')
+
+	const handleInput = e => {
+		e.preventDefault()
+		setInput(domain)
+		setDomain('')
+	}
+
 	return (
-		<div className='search'>
-			<input type='text' className='search__input' />
-			<button className='search__button'>
+		<form className='search'>
+			<input
+				value={domain}
+				onChange={e => setDomain(e.target.value)}
+				type='text'
+				className='search__input'
+			/>
+			<button onClick={handleInput} className='search__button'>
 				<img src={arrowIcon} alt='' />
 			</button>
-		</div>
+		</form>
 	)
 }
 
