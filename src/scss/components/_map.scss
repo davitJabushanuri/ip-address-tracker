@@ -1,0 +1,9 @@
+#map {
+	position: absolute;
+	top: 0 + 20vh;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	height: calc(100vh - 20vh);
+	z-index: -999;
+}
