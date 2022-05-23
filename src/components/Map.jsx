@@ -1,28 +1,32 @@
-import React from 'react'
-import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
+import React, { useState, useEffect } from 'react'
+import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
+import 'leaflet/dist/leaflet.css'
 
-const Map = ({ lat, lng }) => {
-	const position = [51.505, -0.09]
-	console.log(lat, lng)
+const SetViewOnRefresh = ({ coords }) => {
+	const map = useMap()
+	map.setView(coords, map.getZoom())
 
+	return null
+}
+const Map = ({ lat = 20.505, lng = -0.09 }) => {
 	return (
-		<div id='map'>
-			<MapContainer
-				center={[lat ?? 51.505, lng ?? -0.09]}
-				zoom={18}
-				scrollWheelZoom={true}
-			>
-				<TileLayer
-					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-					url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-				/>
-				<Marker position={[51.505, -0.09]}>
-					<Popup>
-						A pretty CSS3 popup. <br /> Easily customizable.
-					</Popup>
-				</Marker>
-			</MapContainer>
-		</div>
+		<MapContainer
+			id='map'
+			center={[lat, lng]}
+			zoom={14}
+			scrollWheelZoom={false}
+		>
+			<TileLayer
+				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+				url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+			/>
+			<Marker position={[lat, lng]}>
+				<Popup>
+					A pretty CSS3 popup. <br /> Easily customizable.
+				</Popup>
+			</Marker>
+			<SetViewOnRefresh coords={[lat, lng]} />
+		</MapContainer>
 	)
 }
 

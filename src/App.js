@@ -28,7 +28,11 @@ function App() {
 			<h1 className='app__header'>IP Address Tracker</h1>
 			<Search setInput={setInput} />
 			<Results location={location} />
-			<Map lat={location?.location?.lat} lng={location?.location?.lng} />
+			<Map
+				lat={location?.location?.lat}
+				lng={location?.location?.lng}
+				location={location}
+			/>
 		</main>
 	)
 }
