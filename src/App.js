@@ -8,8 +8,6 @@ import './scss/main.scss'
 function App() {
 	const [input, setInput] = useState('google.com')
 	const [location, setLocation] = useState()
-	console.log(input)
-	console.log(location)
 	const getLocation = async input => {
 		const data = await fetch(
 			`https://geo.ipify.org/api/v2/country,city?apiKey=at_3x5v4lqAJPFWZrWDWVEQ259pT8HRu&domain=${input}`
@@ -30,7 +28,7 @@ function App() {
 			<h1 className='app__header'>IP Address Tracker</h1>
 			<Search setInput={setInput} />
 			<Results location={location} />
-			<Map />
+			<Map lat={location?.location?.lat} lng={location?.location?.lng} />
 		</main>
 	)
 }
