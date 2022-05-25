@@ -1,18 +1,25 @@
 # Advice generator
 
-This is a solution to the [Advice generator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/advice-generator-app-QdUG-13db).
+This is a solution to the [IP address tracker challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0).
 
 ## :beginner: Overview
 
 this app generates new advice on every button click.
 
-[View demo](https://davitjabushanuri.github.io/advice-generator/)
+[View demo](https://davitjabushanuri.github.io/ip-address-tracker/)
 
 ## :camera:
 
 ![](./templates/template.png)
 
 ## :zap: Usage
+
+Users should be able to:
+
+- View the optimal layout for each page depending on their device's screen size
+- See hover states for all interactive elements on the page
+- See their own IP address on the map on the initial page load
+- Search for any IP addresses or domains and see the key information and location
 
 ### :notebook: Pre-Requisites
 
@@ -27,8 +34,8 @@ To get a local copy up and running follow these simple example steps.
 After you've made sure to have all the tools installed, you should be able to just run a few commands to get set up
 
 ```
-git clone git@github.com:davitJabushanuri/advice-generator.git
-cd advice-generator
+git clone https://github.com/davitJabushanuri/ip-address-tracker.git
+cd ip-address-tracker
 npm install
 npm start
 ```
@@ -41,20 +48,39 @@ npm start
 
 ## :book: What I learned
 
+- How to display map with [React Leaflet](https://react-leaflet.js.org/)
+- How to change the map center in React Leaflet
+
+  - Create a React Component
+
+    ```
+    const SetViewOnRefresh = ({ coords }) => {
+      const map = useMap()
+      map.setView(coords, map.getZoom())
+
+      return null
+    }
+    ```
+
+  - Call the Component inside MapContainer with new latitude and longitude
+    ```
+    <SetViewOnRefresh coords={[lat, lng]} />
+    ```
+
 ### :house: Development
 
-- Add animations
-- Add light theme
+- Make map interactive
+- Add error message for incorrect IP Addresses and domains
 
 ### 🤝 Contribution
 
 Your contributions are always welcome and appreciated. Following are the things you can do to contribute to this project.
 
 - **Report a bug**
-  If you think you have encountered a bug, feel free to report it [here](https://github.com/davitJabushanuri/advice-generator/issues).
+  If you think you have encountered a bug, feel free to report it [here](https://github.com/davitJabushanuri/ip-address-tracker/issues).
   <br/>
 - **Request a feature**
-  If you have a suggestion that would make this better, You can request for a feature [here](https://github.com/davitJabushanuri/advice-generator/issues) with the tag "enhancement".
+  If you have a suggestion that would make this better, You can request for a feature [here](https://github.com/davitJabushanuri/ip-address-tracker/issues) with the tag "enhancement".
   <br/>
 
 - **Create a pull request**

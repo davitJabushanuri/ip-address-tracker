@@ -6,16 +6,18 @@ import Search from './components/Search'
 import './scss/main.scss'
 
 function App() {
-	const [input, setInput] = useState('google.com')
+	const [input, setInput] = useState('')
 	const [location, setLocation] = useState()
 	const getLocation = async input => {
-		let x = 'domain'
+		let x
 		if (
 			/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(
 				input
 			)
 		) {
 			x = 'ipAddress'
+		} else {
+			x = 'domain'
 		}
 		const data = await fetch(
 			`https://geo.ipify.org/api/v2/country,city?apiKey=at_3x5v4lqAJPFWZrWDWVEQ259pT8HRu&${x}=${input}`
