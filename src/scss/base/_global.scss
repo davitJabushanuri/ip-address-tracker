@@ -11,8 +11,12 @@ body {
 	padding: 2rem 1rem;
 	background-image: url('../../images/pattern-bg.png');
 	background-repeat: no-repeat;
-	background-size: 100% 20vh;
+	background-size: 100% 30vh;
 	color: #fff;
+
+	@media (min-width: 768px) {
+		padding: 3rem 2rem;
+	}
 
 	&__header {
 		text-align: center;
