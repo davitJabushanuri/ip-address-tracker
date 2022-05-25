@@ -13,12 +13,7 @@ const SetViewOnRefresh = ({ coords }) => {
 }
 const Map = ({ lat = 20.505, lng = -0.09 }) => {
 	return (
-		<MapContainer
-			id='map'
-			center={[lat, lng]}
-			zoom={14}
-			scrollWheelZoom={false}
-		>
+		<MapContainer id='map' center={[lat, lng]} zoom={11} scrollWheelZoom={true}>
 			<TileLayer
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 				url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'

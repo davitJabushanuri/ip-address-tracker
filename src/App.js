@@ -9,8 +9,16 @@ function App() {
 	const [input, setInput] = useState('google.com')
 	const [location, setLocation] = useState()
 	const getLocation = async input => {
+		let x = 'domain'
+		if (
+			/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(
+				input
+			)
+		) {
+			x = 'ipAddress'
+		}
 		const data = await fetch(
-			`https://geo.ipify.org/api/v2/country,city?apiKey=at_3x5v4lqAJPFWZrWDWVEQ259pT8HRu&domain=${input}`
+			`https://geo.ipify.org/api/v2/country,city?apiKey=at_3x5v4lqAJPFWZrWDWVEQ259pT8HRu&${x}=${input}`
 		)
 		const location = await data.json()
 
